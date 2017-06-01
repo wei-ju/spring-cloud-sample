@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: logic-server-two
+endpoints:
+  auditevents:
+    sensitive: false
+  dump:
+    sensitive: false
+  env:
+    sensitive: false
+  health:
+    sensitive: false
+  heapdump:
+    sensitive: false
+  jolokia:
+    sensitive: false
+  loggers:
+    sensitive: false
+  metrics:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  trace:
+    sensitive: false
+health:
+  config:
+    enabled: false
+management:
+  health:
+    db:
+      enabled: false
+    defaults:
+      enabled: false

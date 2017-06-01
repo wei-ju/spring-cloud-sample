@@ -1,0 +1,25 @@
+server:
+  port: 15888
+eureka:
+  instance:
+    hostname: 192.168.1.201 # 服务地址
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.1.201:15110/eureka/
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    logic-server-one:
+      path: /logic-one/**
+      stripPrefix: false
+      sensitiveHeaders:
+    logic-server-two:
+      path: /logic-two/**
+      stripPrefix: false
+      sensitiveHeaders:
